@@ -6,6 +6,7 @@ const { getQuestion, isCorrectAnswer } = require('./utils/mathUtilities');
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true })); 
 app.use(express.static('public')); 
+
 let currentQuestion = null;
 let streak = 0;
 let leaderboards = [];  
@@ -24,7 +25,7 @@ app.get('/quiz', (req, res) => {
 // Handle form submission with the user's answer
 app.post('/quiz', (req, res) => {
     const userAnswer = req.body.answer;  
-    const isCorrect = isCorrectAnswer(currentQuestion, userAnswer);  t
+    const isCorrect = isCorrectAnswer(currentQuestion, userAnswer);  
 
     if (isCorrect) {
         streak += 1;  
